@@ -3,7 +3,7 @@
 import apps from "../../assets/apps.json";
 import { useRef, useState } from "react";
 import {
-  ChevronDown,
+  ChevronUp,
   Code,
   Cpu,
   Download,
@@ -163,14 +163,14 @@ export default function AppsPage() {
                   >
                     <Download className="mr-2 h-5 w-5" />
                     Download
-                    <ChevronDown
+                    <ChevronUp
                       className={`ml-2 h-4 w-4 transition-transform duration-300 ${openDropdown === app.id ? "rotate-180" : ""}`}
                     />
                   </button>
 
                   {/* Dropdown Menu */}
                   {openDropdown === app.id && (
-                    <div className="absolute z-50 mt-2 w-full rounded-lg shadow-lg bg-dark-50 border border-dark-100">
+                    <div className="absolute z-50 bottom-full mb-2 w-full rounded-lg shadow-lg bg-dark-50 border border-dark-100">
                       <div className="py-1">
                         {app.platforms.map((platform) => (
                           <a

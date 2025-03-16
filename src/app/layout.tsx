@@ -14,14 +14,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title = "Software Developer's Adventures in Berlin 🇩🇪";
+
 export const metadata: Metadata = {
-  title: "Selcuk S. | Full-stack Developer",
+  title: title,
   keywords:
     "frontend, backend, development, berlin, germany, deutschland, backend development, mobile development, react, react native, vue, kotlin, indie developer",
   description:
     "Full-stack Developer based in Berlin, specializing in frontend, backend, and mobile development.",
   openGraph: {
-    title: "Selcuk S. | Full-stack Developer",
+    title: title,
+    siteName: title,
+    type: "website",
     description:
       "Full-stack Developer based in Berlin, specializing in frontend, backend, and mobile development.",
     url: "https://selcuksarikoz.com",
@@ -30,7 +34,7 @@ export const metadata: Metadata = {
         url: "https://selcuksarikoz.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Selcuk S. | Full-stack Developer",
+        alt: title,
       },
     ],
   },

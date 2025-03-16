@@ -1,0 +1,407 @@
+@import "tailwindcss";
+
+body,
+html {
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme definition using new Tailwind 4 @theme directive */
+@theme {
+    --color-primary: #6366f1;
+    --color-primary-hover: #4f46e5;
+    --color-primary-light: #a5b4fc;
+    --color-primary-dark: #4338ca;
+
+    --color-secondary: #14b8a6;
+    --color-secondary-hover: #0d9488;
+    --color-secondary-light: #5eead4;
+    --color-secondary-dark: #0f766e;
+
+    --color-accent: #f43f5e;
+    --color-accent-hover: #e11d48;
+    --color-accent-light: #fda4af;
+    --color-accent-dark: #be123c;
+
+    --color-dark: #0f172a;
+    --color-dark-50: #1e293b;
+    --color-dark-100: #334155;
+    --color-dark-200: #475569;
+
+    --color-code-bg: #1e1e3f;
+    --color-code-text: #9effff;
+
+    --shadow-glow: 0 0 15px color-mix(in srgb, var(--color-primary) 50%, transparent);
+    --shadow-glow-sm: 0 0 10px color-mix(in srgb, var(--color-primary) 30%, transparent);
+    --shadow-glow-lg: 0 0 25px color-mix(in srgb, var(--color-primary) 70%, transparent);
+}
+
+/* Base styles */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+    }
+
+    body {
+        background-color: var(--color-dark);
+        color: white;
+        font-family: var(--font-geist-sans);
+    }
+
+    ::selection {
+        background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+        color: white;
+    }
+}
+
+/* Component styles with CSS nesting */
+@layer components {
+    /* Buttons */
+    .btn {
+        @apply rounded-lg font-medium flex items-center gap-2 transition-all duration-200;
+        padding: 0.75rem 1.25rem;
+
+        &.btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+            box-shadow: 0 4px 6px color-mix(in srgb, var(--color-primary) 20%, transparent);
+
+            &:hover {
+                background-color: var(--color-primary-hover);
+                box-shadow: 0 6px 10px color-mix(in srgb, var(--color-primary) 30%, transparent);
+                transform: translateY(-1px);
+            }
+        }
+
+        &.btn-secondary {
+            background-color: color-mix(
+                    in srgb,
+                    var(--color-dark-100) 80%,
+                    transparent
+            );
+            color: white;
+            border: 1px solid var(--color-dark-100);
+
+            &:hover {
+                background-color: var(--color-dark-100);
+                border-color: #64748b;
+            }
+        }
+
+        &.btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 1px solid color-mix(in srgb, white 20%, transparent);
+
+            &:hover {
+                border-color: color-mix(in srgb, white 40%, transparent);
+                background-color: color-mix(in srgb, white 5%, transparent);
+            }
+        }
+    }
+
+    /* Cards */
+    .card {
+        border-radius: 0.75rem;
+        background-color: color-mix(in srgb, var(--color-dark-50) 70%, transparent);
+        backdrop-filter: blur(8px);
+        border: 1px solid color-mix(in srgb, var(--color-dark-100) 40%, transparent);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+
+        &.card-hover {
+            transition: all 0.3s;
+
+            &:hover {
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1),
+                0 0 10px color-mix(in srgb, var(--color-primary) 5%, transparent);
+                border-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+                transform: translateY(-4px);
+            }
+        }
+    }
+
+    /* Badges */
+    .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+
+        &.badge-primary {
+            background-color: color-mix(
+                    in srgb,
+                    var(--color-primary) 10%,
+                    transparent
+            );
+            color: var(--color-primary-light);
+            border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+        }
+
+        &.badge-secondary {
+            background-color: color-mix(
+                    in srgb,
+                    var(--color-secondary) 10%,
+                    transparent
+            );
+            color: var(--color-secondary-light);
+            border: 1px solid color-mix(in srgb, var(--color-secondary) 20%, transparent);
+        }
+
+        &.badge-accent {
+            background-color: color-mix(
+                    in srgb,
+                    var(--color-accent) 10%,
+                    transparent
+            );
+            color: var(--color-accent-light);
+            border: 1px solid color-mix(in srgb, var(--color-accent) 20%, transparent);
+        }
+    }
+
+    /* Form elements */
+    .form-input {
+        width: 100%;
+        background-color: color-mix(
+                in srgb,
+                var(--color-dark-100) 30%,
+                transparent
+        );
+        border: 1px solid #4b5563;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        color: white;
+        transition: all 0.2s;
+
+        &:focus {
+            outline: none;
+            border-color: transparent;
+            box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 50%, transparent);
+        }
+    }
+
+    .form-label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #d1d5db;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Tags */
+    .tag {
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.375rem;
+        font-size: 0.75rem;
+        font-family: var(--font-geist-mono);
+
+        &.tag-primary {
+            background-color: color-mix(
+                    in srgb,
+                    var(--color-primary) 20%,
+                    transparent
+            );
+            color: var(--color-primary-light);
+        }
+
+        &.tag-secondary {
+            background-color: color-mix(
+                    in srgb,
+                    var(--color-secondary) 20%,
+                    transparent
+            );
+            color: var(--color-secondary-light);
+        }
+
+        &.tag-accent {
+            background-color: color-mix(
+                    in srgb,
+                    var(--color-accent) 20%,
+                    transparent
+            );
+            color: var(--color-accent-light);
+        }
+
+        &.tag-neutral {
+            background-color: color-mix(
+                    in srgb,
+                    var(--color-dark-100) 50%,
+                    transparent
+            );
+            color: #d1d5db;
+        }
+    }
+
+    /* Sections */
+    .section {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+
+        & .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+
+            @media (min-width: 640px) {
+                font-size: 2.25rem;
+            }
+        }
+
+        & .section-subtitle {
+            color: #94a3b8;
+            max-width: 42rem;
+        }
+    }
+
+    /* Icon containers */
+    .icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid;
+        transition: colors 0.2s;
+
+        &.icon-container-primary {
+            background-color: color-mix(
+                    in srgb,
+                    var(--color-primary) 10%,
+                    transparent
+            );
+            border-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+            color: var(--color-primary-light);
+        }
+
+        &.icon-container-secondary {
+            background-color: color-mix(
+                    in srgb,
+                    var(--color-secondary) 10%,
+                    transparent
+            );
+            border-color: color-mix(in srgb, var(--color-secondary) 20%, transparent);
+            color: var(--color-secondary-light);
+        }
+    }
+
+    /* Code blocks */
+    .code-block {
+        background-color: var(--color-code-bg);
+        color: var(--color-code-text);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        font-family: var(--font-geist-mono);
+        font-size: 0.875rem;
+    }
+
+    .inline-code {
+        background-color: var(--color-code-bg);
+        color: var(--color-code-text);
+        padding: 0.125rem 0.375rem;
+        border-radius: 0.25rem;
+        font-size: 0.875rem;
+        font-family: var(--font-geist-mono);
+    }
+}
+
+/* Custom utilities */
+@layer utilities {
+    .text-gradient {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+
+        &.text-gradient-primary {
+            background-image: linear-gradient(
+                    to right,
+                    var(--color-primary),
+                    var(--color-primary-light)
+            );
+        }
+
+        &.text-gradient-secondary {
+            background-image: linear-gradient(
+                    to right,
+                    var(--color-secondary),
+                    var(--color-secondary-light)
+            );
+        }
+    }
+
+    .shadow-glow {
+        box-shadow: var(--shadow-glow);
+    }
+
+    .shadow-glow-sm {
+        box-shadow: var(--shadow-glow-sm);
+    }
+
+    .shadow-glow-lg {
+        box-shadow: var(--shadow-glow-lg);
+    }
+
+    .bg-grid {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 50px 50px;
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-pulse-slow {
+        animation: pulse-slow 5s ease-in-out infinite;
+    }
+}
+
+/* Custom animations */
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse-slow {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--color-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-dark-100);
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-dark-200);
+}

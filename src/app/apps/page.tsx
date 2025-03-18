@@ -1,7 +1,4 @@
-"use client";
-
 import apps from "../../assets/apps.json";
-import { useRef, useState } from "react";
 import {
   ChevronUp,
   Code,
@@ -13,7 +10,9 @@ import {
   Smartphone,
 } from "lucide-react";
 import Image from "next/image";
-import { sendGTMEvent } from "@next/third-parties/google";
+import Link from "next/link";
+import { Title } from "@/src/components/title";
+import { Metadata } from "next";
 
 // Assuming the same AppModel type
 export interface AppModel {
@@ -28,10 +27,16 @@ export interface AppModel {
   }[];
 }
 
-export default function AppsPage() {
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
-  const [activeFilter, setActiveFilter] = useState<string | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+export const metadata: Metadata = {
+  title: "My Digital Creations",
+  description:
+    "From web to desktop to mobile — I build the tools I need and share them with you. These passion projects solve real problems I've encountered, and I hope you find them useful too.",
+};
+
+export default async function AppsPage(props: any) {
+  // Extract filter from search parameters
+  const _pageParam = await props?.searchParams;
+  const initialFilter = _pageParam?.filter || "all";
 
   // Filter categories
   const categories = [
@@ -41,34 +46,23 @@ export default function AppsPage() {
     { id: "mobile", name: "Mobile", icon: <Smartphone className="w-4 h-4" /> },
   ];
 
-  // Filter apps based on active category
-  const filteredApps =
-    activeFilter && activeFilter !== "all"
-      ? apps.filter((app) =>
-          app.tags.some((tag) =>
-            tag.toLowerCase().includes(activeFilter.toLowerCase()),
-          ),
-        )
-      : apps;
-
-  // Toggle dropdown function
-  const toggleDropdown = (appId: number) => {
-    if (openDropdown === appId) {
-      setOpenDropdown(null);
-    } else {
-      setOpenDropdown(appId);
+  // Function to filter apps (now handled server-side)
+  const filterApps = (apps: AppModel[], activeFilter: string | null) => {
+    if (activeFilter && activeFilter !== "all") {
+      return apps.filter((app) =>
+        app.tags.some((tag) =>
+          tag.toLowerCase().includes(activeFilter.toLowerCase()),
+        ),
+      );
     }
+    return apps;
   };
 
-  // Analytics tracking function
-  const trackDownload = (appName: string, platform: string) => {
-    sendGTMEvent({
-      event: `${appName}-${platform}`,
-    });
-  };
+  // Initial filtered apps
+  const filteredApps = filterApps(apps, initialFilter);
 
   // Determine tag colors based on category
-  const getTagColor = (tag: string) => {
+  const getTagColor = (tag: string): string => {
     const lowerTag = tag.toLowerCase();
     if (lowerTag.includes("desktop")) return "bg-primary/20 text-primary-light";
     if (lowerTag.includes("web")) return "bg-secondary/20 text-secondary-light";
@@ -76,37 +70,42 @@ export default function AppsPage() {
     return "bg-dark-100/50 text-gray-300";
   };
 
+  function trackDownload(appName: string, platform: string) {
+    if (typeof window == "undefined") return;
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: `${appName}-${platform}`,
+    });
+  }
+
   return (
-    <div ref={containerRef} className="flex flex-col min-h-screen pb-20 pt-30">
+    <div className="flex flex-col min-h-screen pb-20 pt-30">
       <div className="max-w-7xl w-full mx-auto px-6 sm:px-8 lg:px-10">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-primary-light to-white">
-            My Digital Creations
-          </h1>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            From web to desktop to mobile — I build the tools I need and share
-            them with you. These passion projects solve real problems I've
-            encountered, and I hope you find them useful too.
-          </p>
+          <Title
+            title={"My Digital Creations"}
+            description={
+              "From web to desktop to mobile — I build the tools I need and share them with you. These passion projects solve real problems I've encountered, and I hope you find them useful too."
+            }
+          />
 
           {/* Filter Categories */}
           <div className="flex flex-wrap justify-center gap-3 mt-10">
             {categories.map((category) => (
-              <button
+              <a
                 key={category.id}
-                onClick={() =>
-                  setActiveFilter(category.id === "all" ? null : category.id)
-                }
+                href={`/apps?filter=${category.id}`}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
-                  (category.id === "all" && !activeFilter) ||
-                  activeFilter === category.id
+                  (category.id === "all" && !initialFilter) ||
+                  initialFilter === category.id
                     ? "bg-primary/20 text-primary-light border border-primary/30"
                     : "bg-dark-100/50 text-gray-300 border border-gray-700 hover:bg-dark-100 hover:text-white"
                 }`}
               >
                 {category.icon}
                 {category.name}
-              </button>
+              </a>
             ))}
           </div>
         </div>
@@ -155,39 +154,36 @@ export default function AppsPage() {
                   ))}
                 </div>
 
-                {/* Platform Dropdown */}
+                {/* Platform Dropdown implemented with checkbox */}
                 <div className="mt-auto relative">
-                  <button
-                    onClick={() => toggleDropdown(app.id)}
-                    className="w-full py-3 bg-primary hover:bg-primary-hover text-white rounded-lg font-medium flex items-center justify-center transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30"
-                  >
-                    <Download className="mr-2 h-5 w-5" />
-                    Download
-                    <ChevronUp
-                      className={`ml-2 h-4 w-4 transition-transform duration-300 ${openDropdown === app.id ? "rotate-180" : ""}`}
-                    />
-                  </button>
-
-                  {/* Dropdown Menu */}
-                  {openDropdown === app.id && (
-                    <div className="absolute z-50 bottom-full mb-2 w-full rounded-lg shadow-lg bg-dark-50 border border-dark-100">
-                      <div className="py-1">
-                        {app.platforms.map((platform) => (
-                          <a
-                            key={platform.os}
-                            href={platform.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => trackDownload(app.name, platform.os)}
-                            className="px-4 py-3 text-gray-300 hover:bg-dark-100 hover:text-white transition-colors flex items-center gap-2"
-                          >
-                            <Download className="h-4 w-4" />
-                            <span>{platform.os}</span>
-                          </a>
-                        ))}
+                  <div className="dropdown">
+                    <label className="w-full">
+                      <input type="checkbox" className="peer hidden" />
+                      <div className="w-full py-3 bg-primary hover:bg-primary-hover text-white rounded-lg font-medium flex items-center justify-center transition-all shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 cursor-pointer">
+                        <Download className="mr-2 h-5 w-5" />
+                        Download
+                        <ChevronUp className="ml-2 h-4 w-4 transition-transform duration-300 peer-checked:rotate-180" />
                       </div>
-                    </div>
-                  )}
+
+                      {/* Dropdown Menu */}
+                      <div className="absolute z-50 bottom-full mb-2 w-full rounded-lg shadow-lg bg-dark-50 border border-dark-100 hidden peer-checked:block">
+                        <div className="py-1">
+                          {app.platforms.map((platform) => (
+                            <Link
+                              key={platform.os}
+                              href={platform.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="px-4 py-3 text-gray-300 hover:bg-dark-100 hover:text-white transition-colors flex items-center gap-2"
+                            >
+                              <Download className="h-4 w-4" />
+                              <span>{platform.os}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    </label>
+                  </div>
                 </div>
               </div>
 

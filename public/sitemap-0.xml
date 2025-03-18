@@ -2,38 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
 >
     <url>
-        <loc>https://www.selcuksarikoz.com</loc>
-        <lastmod>2025-03-17T23:37:45.117Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
         <loc>https://www.selcuksarikoz.com/clipmind</loc>
-        <lastmod>2025-03-17T23:37:45.118Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://www.selcuksarikoz.com/photography</loc>
-        <lastmod>2025-03-17T23:37:45.118Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://www.selcuksarikoz.com/apps</loc>
-        <lastmod>2025-03-17T23:37:45.118Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://www.selcuksarikoz.com/contact</loc>
-        <lastmod>2025-03-17T23:37:45.118Z</lastmod>
+        <lastmod>2025-03-18T21:03:26.994Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://www.selcuksarikoz.com/blog</loc>
-        <lastmod>2025-03-17T23:37:45.118Z</lastmod>
+        <lastmod>2025-03-18T21:03:26.994Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.selcuksarikoz.com</loc>
+        <lastmod>2025-03-18T21:03:26.994Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://www.selcuksarikoz.com/contact</loc>
+        <lastmod>2025-03-18T21:03:26.994Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
     </url>

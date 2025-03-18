@@ -148,7 +148,7 @@ export default async function PhotographyPage(props: any) {
                   >
                     <Image
                       src={photo.urls.small}
-                      alt={photo.alt_description || "Photography"}
+                      alt={photo.alt_description || photo?.tags?.join(", ")}
                       width={400}
                       height={400 * (photo.height / photo.width)}
                       className="w-full h-auto"
@@ -206,7 +206,7 @@ export default async function PhotographyPage(props: any) {
                   >
                     <Image
                       src={photo.urls.small}
-                      alt={photo.alt_description || "Photography"}
+                      alt={photo.alt_description || photo?.tags?.join(", ")}
                       width={400}
                       height={400 * (photo.height / photo.width)}
                       className="w-full h-auto"
@@ -262,7 +262,7 @@ export default async function PhotographyPage(props: any) {
               >
                 <Image
                   src={photo.urls.small}
-                  alt={photo.alt_description || "Photography"}
+                  alt={photo.alt_description || photo?.tags?.join(", ")}
                   width={400}
                   height={400 * (photo.height / photo.width)}
                   className="w-full h-auto"

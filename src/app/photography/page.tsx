@@ -55,15 +55,10 @@ async function getPhotos(
   perPage: number = 12,
 ): Promise<{ photos: Photo[]; totalPages: number }> {
   // Use the provided Unsplash API key
-  const UNSPLASH_ACCESS_KEY =
-    process.env.NEXT_UNSPLASH_ACCESS_KEY ||
-    "beZevAmGEOuMgncGV1K_X-eyswuSxj1DE5XnqD9z2bk";
-
-  // User's Unsplash username
-  const username = "selcukss";
+  const UNSPLASH_ACCESS_KEY = process.env.NEXT_UNSPLASH_ACCESS_KEY;
 
   // Get user photos with pagination
-  const url = `https://api.unsplash.com/users/${username}/photos?page=${page}&per_page=${perPage}`;
+  const url = `https://api.unsplash.com/users/selcukss/photos?page=${page}&per_page=${perPage}`;
 
   const response = await fetch(url, {
     headers: {
@@ -73,7 +68,10 @@ async function getPhotos(
   });
 
   if (!response.ok) {
-    throw new Error(`Unsplash API responded with status: ${response.status}`);
+    return {
+      photos: [],
+      totalPages: 0,
+    };
   }
 
   const photos = await response.json();

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import "./globals.css";
 import Navbar from "@/src/components/navbar";
 
@@ -60,6 +62,7 @@ export default function RootLayout({
             {children}
           </main>
         </div>
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { GoogleTagManager } from "@next/third-parties/google";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 
 import "./globals.css";
 import Navbar from "@/src/components/navbar";
+
+const GA_MEASUREMENT_ID = "G-YH1P2Y1GCF";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,16 +56,32 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-br from-gray-900 to-black text-white overflow-x-hidden`}
       >
+        {process.env.NODE_ENV === "production" ? (
+          <>
+            <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+            />
+            <Script
+              id="google-analytics"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `,
+              }}
+            />
+          </>
+        ) : null}
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <main className="flex flex-col flex-grow relative w-full">
             {children}
           </main>
         </div>
-
-        {process.env.NODE_ENV === "production" ? (
-          <GoogleTagManager gtmId="G-YH1P2Y1GCF" />
-        ) : null}
       </body>
     </html>
   );

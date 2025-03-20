@@ -28,7 +28,7 @@ export interface AppModel {
 }
 
 export const metadata: Metadata = {
-  title: "My Digital Creations",
+  title: "My Digital Creations || Free and Fremium Apps by me!",
   description:
     "From web to desktop to mobile — I build the tools I need and share them with you. These passion projects solve real problems I've encountered, and I hope you find them useful too.",
 };

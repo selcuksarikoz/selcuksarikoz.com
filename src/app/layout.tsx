@@ -51,7 +51,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <GoogleTagManager gtmId="G-YH1P2Y1GCF" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-br from-gray-900 to-black text-white overflow-x-hidden`}
       >
@@ -61,6 +60,10 @@ export default function RootLayout({
             {children}
           </main>
         </div>
+
+        {process.env.NODE_ENV === "production" ? (
+          <GoogleTagManager gtmId="G-YH1P2Y1GCF" />
+        ) : null}
       </body>
     </html>
   );

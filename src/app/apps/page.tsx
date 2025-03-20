@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Title } from "@/src/components/title";
+import type { Metadata } from "next";
 
 // Assuming the same AppModel type
 export interface AppModel {
@@ -26,11 +27,11 @@ export interface AppModel {
   }[];
 }
 
-// export const metadata: Metadata = {
-//   title: "My Digital Creations",
-//   description:
-//     "From web to desktop to mobile — I build the tools I need and share them with you. These passion projects solve real problems I've encountered, and I hope you find them useful too.",
-// };
+export const metadata: Metadata = {
+  title: "My Digital Creations",
+  description:
+    "From web to desktop to mobile — I build the tools I need and share them with you. These passion projects solve real problems I've encountered, and I hope you find them useful too.",
+};
 
 export default async function Apps(props: any) {
   // Extract filter from search parameters

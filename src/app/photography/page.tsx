@@ -95,7 +95,7 @@ function createMasonryColumns(photos: Photo[], columnCount: number) {
   return columns;
 }
 
-export default async function PhotographyPage(props: any) {
+export default async function Photography(props: any) {
   // Get page from query params or default to 1
   const _pageParam = await props?.searchParams;
   const pageParam = _pageParam?.page || 1;

@@ -6,6 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "postbuild": "sh sitemap.sh",
     "lint": "next lint",
     "fix": "npx prettier . --write"
   },

@@ -16,5 +16,23 @@
         "url": "https://github.com/selcuksarikoz/apps-release/releases/tag/clipmind"
       }
     ]
+  },
+  {
+    "id": 2,
+    "name": "taulu",
+    "description": "taulu is a board application that allows you to take quick notes and keep your most frequently used websites constantly on screen. It will be released for macOS for now, and later distributed for Windows and Linux.",
+    "imageUrl": "/images/apps/taulu/taulu.jpeg",
+    "tags": [
+      "Desktop",
+      "Typescript",
+      "Productivity",
+      "Picture in Picture"
+    ],
+    "platforms": [
+      {
+        "os": "macOS",
+        "url": "https://github.com/selcuksarikoz/apps-release/releases/tag/taulu"
+      }
+    ]
   }
 ]

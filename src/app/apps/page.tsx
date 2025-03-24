@@ -59,7 +59,7 @@ export default async function Apps(props: any) {
   };
 
   // Initial filtered apps
-  const filteredApps = filterApps(apps, initialFilter);
+  const filteredApps = filterApps(apps, initialFilter).reverse();
 
   // Determine tag colors based on category
   const getTagColor = (tag: string): string => {

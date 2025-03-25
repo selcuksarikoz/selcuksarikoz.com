@@ -101,7 +101,7 @@ export default function Climind() {
             </div>
             <div className="flex items-center space-x-6">
               <a
-                href="https://github.com/selcuksarikoz/apps-release?tab=readme-ov-file#clipmind"
+                href="https://github.com/selcuksarikoz/clipmind"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 !text-white text-sm font-medium hover:opacity-90 transition-all shadow-md"
@@ -139,7 +139,7 @@ export default function Climind() {
                 </p>
                 <div className="mt-10 sm:flex sm:justify-center lg:justify-start gap-4">
                   <a
-                    href="https://github.com/selcuksarikoz/apps-release?tab=readme-ov-file#clipmind"
+                    href="https://github.com/selcuksarikoz/clipmind"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center px-8 py-4 text-base font-medium rounded-xl text-white bg-purple-600 hover:bg-purple-700 shadow-lg hover:shadow-xl transition-all md:text-lg"
@@ -608,7 +608,7 @@ export default function Climind() {
               </a>
               {/* Updated GitHub link with the requested handle */}
               <a
-                href="https://github.com/selcuksarikoz/apps-release"
+                href="https://github.com/selcuksarikoz/clipmind"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-500"

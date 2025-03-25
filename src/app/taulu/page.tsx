@@ -101,7 +101,7 @@ export default function Taulu() {
             </div>
             <div className="flex items-center space-x-6">
               <a
-                href="https://github.com/selcuksarikoz/apps-release?tab=readme-ov-file#taulu"
+                href="https://github.com/selcuksarikoz/taulu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-400 !text-white text-sm font-medium hover:opacity-90 transition-all shadow-md"
@@ -140,7 +140,7 @@ export default function Taulu() {
                 </p>
                 <div className="mt-10 sm:flex sm:justify-center lg:justify-start gap-4">
                   <a
-                    href="https://github.com/selcuksarikoz/apps-release?tab=readme-ov-file#taulu"
+                    href="https://github.com/selcuksarikoz/taulu"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center px-8 py-4 text-base font-medium rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 shadow-lg hover:shadow-xl transition-all md:text-lg"
@@ -434,7 +434,7 @@ export default function Taulu() {
                     the waitlist to be notified when it's ready!
                   </p>
                   <a
-                    href="https://github.com/selcuksarikoz/apps-release?tab=readme-ov-file#taulu"
+                    href="https://github.com/selcuksarikoz/taulu"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-8 py-4 text-base font-medium rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 shadow-lg hover:shadow-xl transition-all md:text-lg"
@@ -595,7 +595,7 @@ export default function Taulu() {
                 </svg>
               </a>
               <a
-                href="https://github.com/selcuksarikoz/apps-release"
+                href="https://github.com/selcuksarikoz/taulu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-500"

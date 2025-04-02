@@ -70,12 +70,12 @@ export default async function Apps(props: any) {
     return "bg-dark-100/50 text-gray-300";
   };
 
-  function trackDownload(appName: string, platform: string) {
+  function trackDownload(appName: string) {
     if (typeof window == "undefined") return;
 
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event: `${appName}-${platform}`,
+      event: `${appName}-download`,
     });
   }
 

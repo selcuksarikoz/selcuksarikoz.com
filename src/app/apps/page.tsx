@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Title } from "@/src/components/title";
-import type { Metadata } from "next";
+import type { Metadata } from "next"; // Assuming the same AppModel type
 
 // Assuming the same AppModel type
 export interface AppModel {
@@ -42,6 +42,7 @@ export default async function Apps(props: any) {
   const categories = [
     { id: "all", name: "All Apps", icon: <Layers className="w-4 h-4" /> },
     { id: "desktop", name: "Desktop", icon: <Cpu className="w-4 h-4" /> },
+    { id: "npm", name: "Npm", icon: <Code className="w-4 h-4" /> },
     { id: "web", name: "Web", icon: <Globe className="w-4 h-4" /> },
     { id: "mobile", name: "Mobile", icon: <Smartphone className="w-4 h-4" /> },
   ];
@@ -59,7 +60,7 @@ export default async function Apps(props: any) {
   };
 
   // Initial filtered apps
-  const filteredApps = filterApps(apps, initialFilter).reverse();
+  const filteredApps = filterApps(apps, initialFilter);
 
   // Determine tag colors based on category
   const getTagColor = (tag: string): string => {
@@ -115,7 +116,7 @@ export default async function Apps(props: any) {
           {filteredApps.map((app) => (
             <div
               key={app.id}
-              className="group relative bg-dark-50/60 backdrop-blur-sm rounded-xl overflow-hidden border border-dark-100/60 shadow-xl transition-all duration-300 hover:shadow-primary/10 hover:border-primary/20 hover:-translate-y-1"
+              className="flex flex-col group relative bg-dark-50/60 backdrop-blur-sm rounded-xl overflow-hidden border border-dark-100/60 shadow-xl transition-all duration-300 hover:shadow-primary/10 hover:border-primary/20 hover:-translate-y-1"
             >
               {/* App Preview Image */}
               <div className="relative h-48 overflow-hidden">
@@ -124,7 +125,7 @@ export default async function Apps(props: any) {
                   height={280}
                   src={app.imageUrl}
                   alt={app.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
 
                 {/* Overlay */}
@@ -137,8 +138,8 @@ export default async function Apps(props: any) {
               </div>
 
               {/* App Details */}
-              <div className="p-6 flex flex-col">
-                <p className="text-gray-300 mb-4 flex-grow">
+              <div className="p-6 flex flex-col grow">
+                <p className="flex text-gray-300 mb-4 grow">
                   {app.description}
                 </p>
 

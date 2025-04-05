@@ -34,5 +34,62 @@
         "url": "https://github.com/selcuksarikoz/taulu"
       }
     ]
+  },
+  {
+    "id": 3,
+    "name": "Client Storage Manager",
+    "description": "A simple and type-safe utility for managing localStorage and sessionStorage in web applications. This library provides a chainable API for adding, getting, deleting, and clearing data.",
+    "imageUrl": "/images/apps/npm/client-storage.png",
+    "tags": [
+      "Npm",
+      "Typescript",
+      "Javascript",
+      "Utility",
+      "Opensource"
+    ],
+    "platforms": [
+      {
+        "os": "Npm",
+        "url": "https://github.com/selcuksarikoz/client-storage-manager"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "PubSub for JS",
+    "description": "A simple and lightweight Publish/Subscribe (PubSub) utility for decoupled communication in JavaScript and TypeScript applications. Ideal for managing events between modules without direct dependencies.",
+    "imageUrl": "/images/apps/npm/pubsub.png",
+    "tags": [
+      "Npm",
+      "Typescript",
+      "Javascript",
+      "Utility",
+      "Opensource"
+    ],
+    "platforms": [
+      {
+        "os": "Npm",
+        "url": "https://github.com/selcuksarikoz/pubsub-manager"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Http Request Builder",
+    "description": "This library provides a simple and type-safe way to make HTTP requests for more complex scenarios with callbacks and request lifecycle management.",
+    "imageUrl": "/images/apps/npm/http-service.png",
+    "tags": [
+      "Npm",
+      "Typescript",
+      "Javascript",
+      "Utility",
+      "Opensource"
+    ],
+    "platforms": [
+      {
+        "os": "Npm",
+        "url": "https://github.com/selcuksarikoz/http-builder"
+      }
+    ]
   }
 ]

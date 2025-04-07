@@ -1,6 +1,26 @@
 [
   {
-    "id": 1,
+    "name": "giso - Git Super Commit Offer",
+    "description": "AI-powered commit message suggestions for your Git workflow. `giso` analyzes your changes and offers intelligent commit message suggestions using cutting-edge AI providers",
+    "imageUrl": "/images/apps/npm/giso.png",
+    "tags": [
+      "Npm",
+      "Javascript",
+      "AI",
+      "Git",
+      "Gemini",
+      "OpenAI",
+      "ChatGPT",
+      "Claude"
+    ],
+    "platforms": [
+      {
+        "os": "Npm",
+        "url": "https://github.com/selcuksarikoz/giso"
+      }
+    ]
+  },
+  {
     "name": "ClipMind",
     "description": "An intelligent clipboard manager that tracks everything you copy, storing it securely within the app. Easily retrieve your copy history and access previously copied text whenever you need it.",
     "imageUrl": "/images/apps/clipmind/clipmind-preview.png",
@@ -18,7 +38,6 @@
     ]
   },
   {
-    "id": 2,
     "name": "taulu",
     "description": "taulu is a board application that allows you to take quick notes and keep your most frequently used websites constantly on screen. It will be released for macOS for now, and later distributed for Windows and Linux.",
     "imageUrl": "/images/apps/taulu/taulu.jpeg",
@@ -36,7 +55,6 @@
     ]
   },
   {
-    "id": 3,
     "name": "Client Storage Manager",
     "description": "A simple and type-safe utility for managing localStorage and sessionStorage in web applications. This library provides a chainable API for adding, getting, deleting, and clearing data.",
     "imageUrl": "/images/apps/npm/client-storage.png",
@@ -55,7 +73,6 @@
     ]
   },
   {
-    "id": 4,
     "name": "PubSub for JS",
     "description": "A simple and lightweight Publish/Subscribe (PubSub) utility for decoupled communication in JavaScript and TypeScript applications. Ideal for managing events between modules without direct dependencies.",
     "imageUrl": "/images/apps/npm/pubsub.png",
@@ -74,7 +91,6 @@
     ]
   },
   {
-    "id": 5,
     "name": "Http Request Builder",
     "description": "This library provides a simple and type-safe way to make HTTP requests for more complex scenarios with callbacks and request lifecycle management.",
     "imageUrl": "/images/apps/npm/http-service.png",

@@ -16,7 +16,6 @@ import type { Metadata } from "next"; // Assuming the same AppModel type
 
 // Assuming the same AppModel type
 export interface AppModel {
-  id: number;
   name: string;
   description: string;
   imageUrl: string;
@@ -115,7 +114,7 @@ export default async function Apps(props: any) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredApps.map((app) => (
             <div
-              key={app.id}
+              key={app.name}
               className="flex flex-col group relative bg-dark-50/60 backdrop-blur-sm rounded-xl overflow-hidden border border-dark-100/60 shadow-xl transition-all duration-300 hover:shadow-primary/10 hover:border-primary/20 hover:-translate-y-1"
             >
               {/* App Preview Image */}
@@ -191,7 +190,7 @@ export default async function Apps(props: any) {
               {/* Decorative corner accent */}
               <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden z-[10]">
                 <div className="absolute transform rotate-45 bg-gradient-to-br from-primary/90 to-primary/90 text-white text-xs py-1 right-[-35px] top-[14px] w-[120px] text-center">
-                  App
+                  NEW
                 </div>
               </div>
             </div>

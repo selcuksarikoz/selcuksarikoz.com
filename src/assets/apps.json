@@ -55,6 +55,24 @@
     ]
   },
   {
+    "name": "Weather Forecast CLI",
+    "description": "A command-line tool that provides detailed multi-day weather forecasts with location-specific activity suggestions",
+    "imageUrl": "/images/apps/cli/weather-cli.jpeg",
+    "tags": [
+      "Desktop",
+      "Golang",
+      "Casual",
+      "CLI",
+      "Terminal"
+    ],
+    "platforms": [
+      {
+        "os": "All",
+        "url": "https://github.com/selcuksarikoz/go-weather-cli"
+      }
+    ]
+  },
+  {
     "name": "Client Storage Manager",
     "description": "A simple and type-safe utility for managing localStorage and sessionStorage in web applications. This library provides a chainable API for adding, getting, deleting, and clearing data.",
     "imageUrl": "/images/apps/npm/client-storage.png",

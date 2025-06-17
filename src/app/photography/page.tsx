@@ -79,13 +79,13 @@ export async function generateMetadata() {
 // Server-side data fetching
 async function getPhotos(
   page: number = 1,
-  perPage: number = 12,
+  perPage: number = 12
 ): Promise<{ photos: Photo[]; totalPages: number }> {
   // Use the provided Unsplash API key
   const UNSPLASH_ACCESS_KEY = process.env.NEXT_UNSPLASH_ACCESS_KEY;
 
   // Get user photos with pagination
-  const url = `https://api.unsplash.com/users/selcukss/photos?page=${page}&per_page=${perPage}`;
+  const url = `https://api.unsplash.com/users/selcuksarikoz/photos?page=${page}&per_page=${perPage}`;
 
   const response = await fetch(url, {
     headers: {

@@ -132,7 +132,7 @@ const Bio = () => {
                 {/* Social links */}
                 <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-3">
                   <a
-                    href="https://unsplash.com/@selcuksarikoz"
+                    href="https://unsplash.com/@funnyturkishdude"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 bg-dark-100/60 hover:bg-dark-100 px-3 py-2 rounded-lg transition-colors border border-dark-100/60 hover:border-gray-600"
@@ -142,7 +142,7 @@ const Bio = () => {
                   </a>
 
                   <a
-                    href="https://www.pexels.com/@selcuksarikoz/"
+                    href="https://www.pexels.com/@funnyturkishdude/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 bg-dark-100/60 hover:bg-dark-100 px-3 py-2 rounded-lg transition-colors border border-dark-100/60 hover:border-gray-600"

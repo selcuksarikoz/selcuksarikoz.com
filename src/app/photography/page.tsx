@@ -85,7 +85,7 @@ async function getPhotos(
   const UNSPLASH_ACCESS_KEY = process.env.NEXT_UNSPLASH_ACCESS_KEY;
 
   // Get user photos with pagination
-  const url = `https://api.unsplash.com/users/selcuksarikoz/photos?page=${page}&per_page=${perPage}`;
+  const url = `https://api.unsplash.com/users/funnyturkishdude/photos?page=${page}&per_page=${perPage}`;
 
   const response = await fetch(url, {
     headers: {

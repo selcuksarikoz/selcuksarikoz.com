@@ -124,7 +124,7 @@ export default function Contact() {
                   </Link>
 
                   <Link
-                    href="https://unsplash.com/@selcuksarikoz"
+                    href="https://unsplash.com/@funnyturkishdude"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="h-10 w-10 rounded-lg bg-dark-100/80 border border-dark-100 flex items-center justify-center hover:bg-dark-100 hover:border-gray-600 transition-all"
@@ -134,7 +134,7 @@ export default function Contact() {
                   </Link>
 
                   <Link
-                    href="https://www.pexels.com/@selcuksarikoz/"
+                    href="https://www.pexels.com/@funnyturkishdude"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="h-10 w-10 rounded-lg bg-dark-100/80 border border-dark-100 flex items-center justify-center hover:bg-dark-100 hover:border-gray-600 transition-all"
